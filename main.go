@@ -44,8 +44,10 @@ func main() {
 	cfg.wg.Wait()
 
 	counter := 1
-	for normalizedURL, _ := range cfg.pages {
+	for normalizedURL := range cfg.pages {
 		fmt.Printf("%d - %s\n", counter, normalizedURL)
 		counter++
 	}
+
+	writeCSVReport(cfg.pages, "report.csv")
 }
